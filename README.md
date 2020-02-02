@@ -1,11 +1,11 @@
-# NY-students-api (title in progress) 
+# NY-students-api  
 
 ## Description: 
-(4 to 5 sentences summarizing the features, functions, and goals.)
+ 
 I wanted to make an api tool that would gather data about high school achievements, particularly centered around SAT scores, for the high schools in NY. I mostly wanted to focus on the high-achieving school demographics, such as gender, race, and income distributions. I wanted to make data visualizations of this data and see if there are any trends or patterns comparing the demographics of high achieving vs lower achieving high schools based on SAT scores. I may later bring in other variables such as graduation or literacy rate. 
 
 ## Wireframes: 
-Mockups of your app on desktop, tablet, and mobile.
+ 
 
 ## API: 
   - I will be using the 2012 SAT scores for NY high schools api: https://dev.socrata.com/foundry/data.cityofnewyork.us/f9bf-2cp4

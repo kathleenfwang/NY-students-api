@@ -10,7 +10,7 @@ I wanted to make an api tool that would gather data about high school achievemen
  
 
 ## API: 
-  - I will be using the 2012 SAT scores for [NY high schools api:](https://dev.socrata.com/foundry/data.cityofnewyork.us/f9bf-2cp4)
+  - I will be using the 2012 SAT scores for [NY 2012 SAT Report api:](https://dev.socrata.com/foundry/data.cityofnewyork.us/f9bf-2cp4)
   - Also be using the [2013-18 NY High School directory api:](https://dev.socrata.com/foundry/data.cityofnewyork.us/s52a-8aq6)
 ## MVP: Write out what your goals are for MVP, including the minimum, need-to-have features of your app.
   - Be built with HTML, CSS, and JavaScript. 

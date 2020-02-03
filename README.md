@@ -4,7 +4,9 @@
  
 I wanted to make an api tool that would gather data about high school achievements, particularly centered around SAT scores, for the high schools in NY. I mostly wanted to focus on the high-achieving school demographics, such as gender, race, and income distributions. I wanted to make data visualizations of this data and see if there are any trends or patterns comparing the demographics of high achieving vs lower achieving high schools based on SAT scores. I may later bring in other variables such as graduation or literacy rate. 
 
-## Wireframes: 
+## Wireframes:
+- [Desktop](https://photos.app.goo.gl/W1VqmfFN1sZ2ZEr87)
+- [Mobile/Tablet](https://photos.app.goo.gl/T8BLimfmzTGYkXYZ7)
  
 
 ## API: 

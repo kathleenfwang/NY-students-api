@@ -1,19 +1,136 @@
 body {
   font-family: 'Roboto';
   text-align: center;
+  background-image: url('https://elements-cover-images-0.imgix.net/30b43cff-feb6-4bcf-a00a-12f1c4394136?auto=compress%2Cformat&fit=max&w=2740&s=b15352787ab40a93a5b60c986c24a094');
+
+
+  padding: 0;
+
+
 
 }
 
-#highestSAT {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
-  text-align: center;
+
+a {
+  color: #6B3037;
+
 }
+
+#header2 {
+  margin: 0;
+  padding: 10px;
+  background-color: white;
+  font-family: "Homemade Apple";
+}
+
+#pData,
+#ecoNeed {
+  font-family: "Nanum Pen Script";
+
+  font-size: 2rem;
+  background-color: #FACC33;
+  color: black;
+  border: 5px solid #FACC33;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+
+
+h1 {
+  font-family: "Nanum Pen Script";
+  color: white;
+  background-color: #6B3037;
+  border: 4px solid #6B3037;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 2rem;
+}
+
+h2 {
+  font-family: "Nanum Pen Script";
+  color: black;
+  font-size: 2rem;
+}
+
+.schoolName {
+  color: #6B3037;
+  text-decoration: underline;
+  font-family: "Nanum Pen Script";
+  font-size: 2rem;
+  margin: 0;
+
+}
+
+#header {
+  font-size: 3em;
+  font-weight: bolder;
+  margin: 0;
+  height: 100px;
+  line-height: 100px;
+  background-color: #FACC33;
+  color: black;
+  border: none;
+
+
+}
+
+#first {
+  background-color: white;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+  #highestSAT,
+  #lowestSAT {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    grid-gap: 10px;
+    text-align: center;
+    justify-content: center;
+
+
+
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  #highestSAT,
+  #lowestSAT {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    text-align: center;
+    justify-content: center;
+
+
+  }
+}
+
+
+
 
 .schoolScore {
+  background-color: white;
+  border-radius: 20px;
   width: 300px;
   height: 200px;
   border: 2px solid black;
   padding: 10px;
+}
+
+
+
+.schoolEntry {
+  border-radius: 20px;
+  background-color: white;
+  height: 200px;
+  border: 2px solid black;
+  padding: 15px;
+  margin-top: 2%;
+
 }

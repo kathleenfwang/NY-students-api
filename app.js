@@ -1,12 +1,5 @@
 const url = 'https://data.cityofnewyork.us/resource/f9bf-2cp4.json'
 
-function findTotal(a, b, c) {
-  return Math.round(parseInt(a) + parseInt(b) + parseInt(c))
-}
-
-function standardDeviation() {
-  findMean
-}
 
 function createChart(ctx, labels, title, data, len) {
   var myChart = new Chart(ctx, {
@@ -60,15 +53,14 @@ const stdCtx = document.querySelector('#std')
 const testTakersTotal = document.querySelector('#testTakersTotal')
 const pData = document.querySelector('#pData')
 
-
 var topTenCtx = document.getElementById('topTenCtx');
 let test = async function () {
   await axios.get(url).then(response => {
     var filtered = response.data.filter((x) => {
-      return parseInt(x.num_of_sat_test_takers) > 200
+      return parseInt(x.num_of_sat_test_takers) > 250
     })
     let schoolScores = {}
-    let highestSchoolScores = {}
+
     filtered.forEach((x) => {
       schoolScores[x.school_name] = findTotal(x.sat_critical_reading_avg_score, x.sat_math_avg_score, x.sat_writing_avg_score)
     })
@@ -157,11 +149,12 @@ let test = async function () {
     })
 
     var std2 = sortedVals.indexOf(1514)
-    pData.innerText = `${std2} / ${filtered.length} of schools are within 1 standard deviation of the mean SAT scores. ${filtered.length - std2} / ${filtered.length} are outside 1 standard deviation and represent the top 13% of the data`
+    pData.innerText = `${std2} / ${filtered.length} of schools are within 1 standard deviation of the mean SAT scores. ${filtered.length - std2} / ${filtered.length} are outside 1 standard deviation and represent the top ${Math.floor(((filtered.length - std2) / filtered.length)*100)}% of the data`
 
     function generateColors(len, color) {
       console.log('STD: ' + std2)
       let colors = []
+
       for (let i = 0; i < len; i++) {
 
         if (colors == meanIndex) {
@@ -183,11 +176,22 @@ let test = async function () {
       return schoolScores[b] - schoolScores[a]
     })
 
-    console.log(lowest)
     let lowestSchoolScores = {}
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < lowest.length; i++) {
       lowestSchoolScores[lowest[i]] = [highestSortedVals[i]]
     }
+
+    let lows = {}
+    for (let i = 0; i < 5; i++) {
+      lows[lowest[i]] = [highestSortedVals[i]]
+    }
+
+    let highestSchoolScores = {}
+    for (let i = lowest.length - 1; i > lowest.length - 6; i--) {
+      highestSchoolScores[lowest[i]] = highestSortedVals[i]
+    }
+    console.log('BBBBBB')
+    console.log(highestSchoolScores)
 
 
     function generateColorsMean(len, color) {
@@ -237,12 +241,16 @@ let test = async function () {
     // map to the names -> [lewis,worse,bad]  
     // schoolScores = {lewis: 1490, stuvesant: 1500} 
     console.log(highestSAT)
-    let i = 0;
 
-    for (let school in lowestSchoolScores) {
 
-      highestSAT.innerHTML += `<div class ="schoolScore"> <a href ="${school}"><h2> ${school} </h2><h3> Average SAT score: ${schoolScores[school]} </a></h3>`
-      i++
+    for (let school in lows) {
+
+      highestSAT.innerHTML += `<div class ="schoolScore"> <a href ="#${school}"><h2> ${school} </h2><h3> Average SAT score: ${schoolScores[school]} </a></h3>`
+
+    }
+    const lowestSAT = document.querySelector("#lowestSAT")
+    for (let school in highestSchoolScores) {
+      lowestSAT.innerHTML += `<div class ="schoolScore"> <a href ="#${school}"><h2> ${school} </h2><h3> Average SAT score: ${schoolScores[school]} </a></h3>`
     }
 
 
@@ -255,18 +263,21 @@ let test = async function () {
       let filteredNY = data.filter((x) => {
         return x['year'] === "2017-18" && x['grade_k'] === "0"
       })
+
+      console.log('CCCCCCCCC')
+      console.log(filteredNY)
       let filteredArr = {}
       console.log(filteredNY)
       console.log(lowest)
       console.log('TEST: ' + lowest.indexOf(filteredNY[2]['school_name'].toUpperCase()))
+
       for (let i = 0; i < filteredNY.length; i++) {
         if (lowest.indexOf(filteredNY[i]['school_name'].toUpperCase()) >= 0) {
-
           filteredArr[filteredNY[i]['school_name']] = i
           lowestSchoolScores[filteredNY[i]['school_name'].toUpperCase()] = i
-
         }
       }
+      console.log('DDDDDD')
       console.log(filteredArr)
       let filteredKeys = Object.keys(filteredArr)
       let topFiveSchools = {}
@@ -274,9 +285,10 @@ let test = async function () {
         if (lowestSchoolScores[filteredKeys[i].toUpperCase()]) {
           topFiveSchools[filteredKeys[i]] = filteredArr[filteredKeys[i]]
 
-
         }
       }
+
+
 
       lowestSchoolScores["Bronx High School of Science".toUpperCase()] = 13
 
@@ -284,22 +296,86 @@ let test = async function () {
       let top10SAT = document.querySelector('#topTenList')
       //highestSAT (caps??) and filteredArr (no caps??) {'stu: 3} highest sat: stu: 2335
 
-      console.log('**********')
-      console.log(lowestSchoolScores)
-
-      let i = 0;
 
 
-      for (school in lowestSchoolScores) {
-        //stuvesant, bronx .. 
-        while (i < 5) {
-          top10SAT.innerHTML += `${filteredNY[lowestSchoolScores[school]]['school_name']} `
-          console.log(i)
 
-        }
-        i++
+
+
+
+
+      //{stu: 3} // 
+      //stuvesant, bronx .. 
+      let economicMean = filteredNY.reduce((prev, next) => {
+
+        return prev += parseInt(next['economic_need_index'])
+      }, 0)
+
+      let povertyMean = filteredNY.reduce((prev, next) => {
+        return prev += parseInt(next['poverty_2'])
+      }, 0)
+
+      let englishMean = filteredNY.reduce((prev, next) => {
+        return prev += parseInt(next['english_language_learners_2'])
+      }, 0)
+
+      economicMean = Math.round((economicMean) / filteredNY.length)
+      povertyMean = Math.round((povertyMean) / filteredNY.length)
+      englishMean = Math.round((englishMean) / filteredNY.length)
+
+      let entries = (Object.entries(lowestSchoolScores))
+      console.log('UGHH')
+      console.log(entries)
+      for (let i = 0; i < 5; i++) {
+        top10SAT.innerHTML += `<div id ='${filteredNY[entries[i][1]]['school_name'].toUpperCase()}' class ='schoolEntry'> 
+        <h2 class ="schoolName"> ${filteredNY[entries[i][1]]['school_name']} </h2>
+        <p> Total Enrollment: ${filteredNY[entries[i][1]]['total_enrollment']} <p/>
+        <p> Poverty Index: <span style = "color:teal">${filteredNY[entries[i][1]]['poverty_2']}% </span> | Average: ${povertyMean}%</p> 
+        <p>Economic Need Index:  <span style ="color:teal"> ${filteredNY[entries[i][1]]['economic_need_index']} </span> | Average: ${economicMean}% </p> 
+        <p> % of English Language Learners: <span style = "color:teal"> ${filteredNY[entries[i][1]]['english_language_learners_2']}% </span> | Average: ${englishMean}% </p>
+        </div>
+       
+        `
 
       }
+
+      let ind = entries.length - 1
+      const lowList = document.querySelector("#topLowList")
+      for (let i = 0; i < 5; i++) {
+        topLowList.innerHTML += `<div id ='${filteredNY[entries[ind-i][1]]['school_name'].toUpperCase()}' class ='schoolEntry'> 
+        <h2 class="schoolName"> ${filteredNY[entries[ind-i][1]]['school_name']} </h2>
+        <p> Total Enrollment: ${filteredNY[entries[ind-i][1]]['total_enrollment']} <p/>
+        <p> Poverty Index: <span style = "color:red">${filteredNY[entries[ind-i][1]]['poverty_2']}% </span> | Average: ${povertyMean}%</p> 
+        <p>Economic Need Index:  <span style ="color:red"> ${filteredNY[entries[ind - i][1]]['economic_need_index']} </span> | Average: ${economicMean}% </p> 
+        <p> % of English Language Learners: <span style ="color:red">${filteredNY[entries[ind - i][1]]['english_language_learners_2']}% </span> | Average: ${englishMean}% </p>
+        </div>`
+      }
+
+
+
+
+
+
+
+
+
+      /*
+      <p> Asian population: ${filteredNY[entries[i][1]]['asian_population1']}<p/>
+            White population: ${filteredNY[entries[i][1]]['asian_population1']}<p/>
+            Hispanic: ${filteredNY[entries[i][1]]['asian_population1']}<p/>
+            Black:${filteredNY[entries[i][1]]['asian_population1']}<p/>
+            Poverty Index: ${filteredNY[entries[i][1]]['asian_population1']}<p/>
+            ESL learners: ${filteredNY[entries[i][1]]['asian_population1']}<p/>
+            */
+
+
+
+
+
+
+      console.log(filteredNY)
+
+
+
 
 
 
@@ -322,12 +398,7 @@ let test = async function () {
         },
         */
 
-    let data = []
 
-    /*for (let i = 0; i < 10; i++) {
-      createChart(topTenCtx, labels, lowestSchoolScores[Object.keys(lowestSchoolScores)[0]], data, 5)
-    }
-    */
 
 
   }).catch(e => {

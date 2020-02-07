@@ -24,27 +24,34 @@
 
 <body>
 
-  <h1 id="header"> NY High School Students API </h1>
-  <div id="header2">
-    <h2> <a href="#highestSAT"> Top 10 High Schools with Highest SAT Scores (2012) </a> </h2>
+  <div class="main1">
+    <h1 id="header"> NY High School Students API </h1>
+    <div id="header2">
+      <h2> <a href="#highestSAT"> Top 10 High Schools with Highest SAT Scores (2012) </a> </h2>
 
-    <h2> <a href="#lowestSAT"> Top 10 High Schools with Lowest SAT Scores (2012)</a>
-    </h2>
+      <h2> <a href="#lowestSAT"> Top 10 High Schools with Lowest SAT Scores (2012)</a>
+      </h2>
+      <h2> NY High Schools with # of SAT Takers > 350 in 2012: <span id="testTakersTotal"> </span> </h2>
+    </div>
 
-
-
-
-    <h2> NY High Schools with # of SAT Takers > 350 in 2012: <span id="testTakersTotal"> </span> </h2>
+    <div id="first">
+      <div id="chart">
+        <canvas id="myChart"></canvas>
+      </div>
+      <h3 id="totalMean"> </h3>
+      <h3 id="totalStd"> </h3>
+      <div id="chart2">
+        <canvas id="std"></canvas>
+      </div>
+      <h2 id="pData"> </h2>
+    </div>
+    <div class="meanChart">
+      <canvas id="meanChart"></canvas>
+    </div>
   </div>
 
-  <div id="first">
-    <canvas id="myChart"></canvas>
-    <h3 id="totalMean"> </h3>
-    <h3 id="totalStd"> </h3>
-    <canvas id="std"></canvas>
-    <h2 id="pData"> </h2>
-  </div>
-  <div id="top10SAT">
+
+  <div id="top10SAT" class="top10SAT">
     <h1>Top 5 High Schools with Highest SAT Scores (2012) </h1>
     <div id="highestSAT">
     </div>
@@ -55,17 +62,21 @@
 
 
   <br>
-  <div id="topTenList">
-    <p id="ecoNeed"> The Economic Need Index measures the socioeconomic circumstances of a school's population and
-      assigns a score to
-      each school based on the number of students eligible for free lunch or public assistance or who live in
-      temporary
-      housing.</p>
+  <div class="topTenList">
+    <div id="topTenList">
+      <p id="ecoNeed"> The <span style="color:red"> Economic Need Index </span>measures the socioeconomic circumstances
+        of
+        a school's population and
+        assigns a score to
+        each school based on the number of students eligible for free lunch or public assistance or who live in
+        temporary
+        housing.</p>
 
-  </div>
-  <h1> Top 5 High Schools with Lowest SAT Scores (2012) </h1>
-  <div id="topLowList">
+    </div>
+    <h1> Top 5 High Schools with Lowest SAT Scores (2012) </h1>
+    <div id="topLowList">
 
+    </div>
   </div>
   <script src="helpers.js" async defer></script>
   <script src="app.js" async defer></script>

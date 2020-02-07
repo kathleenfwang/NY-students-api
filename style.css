@@ -8,8 +8,31 @@ body {
 
 
 
+
+
 }
 
+a {
+  opacity: 0.8;
+}
+
+.meanChart,
+.schoolScore,
+h1,
+#header2,
+.schoolEntry,
+.top10SAT,
+.topTenList,
+#pData,
+#chart,
+#chart2,
+#main2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+  padding: 20px;
+  border-radius: 20px;
+
+}
 
 a {
   color: #6B3037;
@@ -19,7 +42,7 @@ a {
 #header2 {
   margin: 0;
   padding: 10px;
-  background-color: white;
+  background-color: snow;
   font-family: "Homemade Apple";
 }
 
@@ -62,6 +85,23 @@ h2 {
 
 }
 
+div {
+  margin-bottom: 10px;
+}
+
+.meanChart {
+  margin: auto auto;
+  background-color: snow;
+  width: 70%;
+  padding: 30px;
+
+}
+
+h1 {
+  opacity: 0.8;
+  font-family: "Roboto"
+}
+
 #header {
   font-size: 3em;
   font-weight: bolder;
@@ -71,18 +111,24 @@ h2 {
   background-color: #FACC33;
   color: black;
   border: none;
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 10px;
+  font-family: "Roboto";
 
 }
 
 #first {
-  background-color: white;
+  background-color: snow;
 }
 
 
 
 
 @media only screen and (max-width: 600px) {
+  body {
+    margin: 5px;
+    font-size: .5rem;
+  }
 
   #highestSAT,
   #lowestSAT {
@@ -95,7 +141,13 @@ h2 {
 
 
   }
+
+  #chart {
+    display: none;
+  }
 }
+
+
 
 @media only screen and (min-width: 768px) {
 
@@ -109,28 +161,38 @@ h2 {
 
 
   }
+
+  #chart {
+    display: visible;
+  }
 }
 
 
 
 
 .schoolScore {
-  background-color: white;
-  border-radius: 20px;
+  background-color: snow;
+  border-radius: 10px;
   width: 300px;
   height: 200px;
-  border: 2px solid black;
+  border: 1px solid whitesmoke;
   padding: 10px;
 }
 
-
+a:hover {
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .schoolEntry {
-  border-radius: 20px;
-  background-color: white;
+  border-radius: 10px;
+  background-color: snow;
   height: 200px;
-  border: 2px solid black;
-  padding: 15px;
+  border: 2px solid whitesmoke;
+  padding: 20px;
   margin-top: 2%;
+
+  font-size: 1.3em;
 
 }

@@ -1,4 +1,4 @@
-# NY-students-api  
+# City of New York High School Demographic Data API 
 
 ## Description: 
  

@@ -2,7 +2,9 @@
 
 ## Description: 
  
-I wanted to make an api tool that would gather data about high school achievements, particularly centered around SAT scores, for the high schools in NY. I mostly wanted to focus on the high-achieving school demographics, such as gender, race, and income distributions. I wanted to make data visualizations of this data and see if there are any trends or patterns comparing the demographics of high achieving vs lower achieving high schools based on SAT scores. I may later bring in other variables such as graduation or literacy rate. 
+I wanted to make an api tool that would gather data about high school achievements, particularly centered around SAT scores, for the high schools in NY. I mostly wanted to focus on the high-achieving school demographics, such as gender, race, and income distributions. I wanted to make data visualizations of this data and see if there are any trends or patterns comparing the demographics of high achieving vs lower achieving high schools based on SAT scores. I may later bring in other variables such as graduation or literacy rate.
+
+### View the site [here](http://nystudentsapi.surge.sh/)
 
 ## Wireframes:
 - [Desktop](https://lh3.googleusercontent.com/I4ObOWFvNc6PWrqssGavSZ_QwRH7o6nkqIpQs2YdB5b69NNllkNA4OPRBUTs5MIL8gOkji2ZNqX-aHllGR0w2Txg81PwJi1D_jJJXGExSKc9ML3mGRcEV8X0HPczTB_TPs9MhSjuC1wGNSyJTIuxDmTT19-juGyr1MkDHVwdzdh-bGwz2Z82oAPNmjQqkvFdrz0TpMWG04ox_fU2chcBIxo-mOAmT_JXADE5HDvI-8o9EyeCuZChftMwBcxjjQxGc0n_8RRANtj2SywnuZ6qh2QocicK0S9loPWE7uYVOPlefW3hvB6-E4diWsTn-9NMc3lZBNlUSxrAMV51d4kBZbM37PovPakeg5N3WrJkXkHcHOQR6lmoHgE0fiXwhvEJ1u7lWd8XrUTtqz-S37ZLCpTCdsg6-JkurjgwXvxjiDzX6GFnpy0qNCVs1B6qcK_cuhrX6zBbPOly29bO8uuLRZ6JaqbGBWkmqGXZQJJokcP2Luhs2E2GL_UfaONVvZZlYjUOa3bOogljXMsP3kV9jpLsSEAeYsrPOavH8wy1pQjF2yx0YgbdyvIxGmAf1VrJgcD9UNtQoUchv-OhOeNMwk5m2zgc3RTet_E9pZWJmn2oHd7zXKM6l7owUxJtHxA3jPpVbBlbsYfmxw9a18U4HZ_4p35rrSp9dS5wx2g7GW4G--iaT5VIPYuY8IIhrqzzwen6__zMHKjg8NmlrrJksWyO9hONBqn0NWerFJ30t8AiUFq2=w645-h859-no)
